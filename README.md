@@ -61,6 +61,7 @@ function App() {
           currentIndex={ currentImage }
           disableScroll={ false }
           closeOnClickOutside={ true }
+          closeOnClickInside={ true }
           onClose={ closeImageViewer }
         />
       )}
@@ -77,17 +78,18 @@ render(<App />, document.getElementById('app'));
 
 # API
 
-| Property        |  Type     | Description                                                                       |
-| :-------------- | :-------- | :-------------------------------------------------------------------------------- |
-| src             | string[]  | Array of image URLs                                                               |
-| currentIndex    | number    | Index of image in `src` property which will be shown first when viewer is opened  |
-| onClose         | function  | Callback which will be called when viewer will closed                             |
-| backgroundStyle | object    | Custom styles for background of modal window                                      |
-| disableScroll   | boolean   | Disable scrolling images by mouse wheel                                           |
-| closeOnClickOutside   | boolean   | Whether viewer should be closed when clicking outside of image              |
-| closeComponent | JSX.Element | Custom component for the close button |
-| leftArrowComponent | JSX.Element | Custom component for the left arrow |
-| rightArrowComponent | JSX.Element | Custom component for the right arrow |
+| Property              |  Type         | Description                                                                       |
+| :--------------       | :--------     | :-------------------------------------------------------------------------------- |
+| src                   | string[]      | Array of image URLs                                                               |
+| currentIndex          | number        | Index of image in `src` property which will be shown first when viewer is opened  |
+| onClose               | function      | Callback which will be called when viewer will closed                             |
+| backgroundStyle       | object        | Custom styles for background of modal window                                      |
+| disableScroll         | boolean       | Disable scrolling images by mouse wheel                                           |
+| closeOnClickOutside   | boolean       | Whether viewer should be closed when clicking outside of image                    |
+| closeOnClickInside    | boolean       | Whether viewer should be closed when clicking inside image                        |
+| closeComponent        | JSX.Element   | Custom component for the close button                                             |
+| leftArrowComponent    | JSX.Element   | Custom component for the left arrow                                               |
+| rightArrowComponent   | JSX.Element   | Custom component for the right arrow                                              |
 
 # Shortcuts
 
