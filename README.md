@@ -1,8 +1,5 @@
 # React Simple Image Viewer
 
-[![npm version](https://badge.fury.io/js/react-simple-image-viewer.svg)](https://badge.fury.io/js/react-simple-image-viewer)
-[![Build Status](https://travis-ci.org/specter256/react-simple-image-viewer.svg?branch=master)](https://travis-ci.org/specter256/react-simple-image-viewer)
-
 Simple image viewer component for React.
 
 # Installation
@@ -71,11 +68,6 @@ function App() {
 
 render(<App />, document.getElementById('app'));
 ```
-
-# Demo
-
-[Try out demo on CodeSandbox](https://codesandbox.io/s/react-simple-image-viewer-demo-4itlr)
-
 # API
 
 | Property              |  Type         | Description                                                                       |
@@ -99,3 +91,7 @@ render(<App />, document.getElementById('app'));
 | Right Arrow / l | Next image                      |
 | Left Arrow / h  | Previous image                  |
 | Mouse wheel     | Scrolling previous / next image |
+
+# References to original repository
+
+[Github Repository](https://github.com/specter256/react-simple-image-viewer)
