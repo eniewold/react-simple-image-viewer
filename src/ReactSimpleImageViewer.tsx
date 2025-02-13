@@ -125,7 +125,7 @@ const ReactSimpleImageViewer = (props: IProps) => {
         onClick={handleClick}
       >
         <div className={`${styles.slide} react-simple-image-viewer__slide`}>
-                  <img className={styles.image} src={props.src[currentIndex]} alt="" style={props.imageStyle} />
+          <img className={styles.image} src={props.src[currentIndex]} alt="" style={props.imageStyle} />
         </div>
       </div>
     </div>
