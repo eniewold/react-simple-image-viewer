@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 
 interface IProps {
     src: string[];
+    alt: string[];
     currentIndex?: number;
     backgroundStyle?: CSSProperties;
     imageStyle?: CSSProperties;
@@ -10,9 +11,9 @@ interface IProps {
     closeOnClickOutside?: boolean;
     closeOnClickInside?: boolean;
     onClose?: () => void;
-    closeComponent?: JSX.Element;
-    leftArrowComponent?: JSX.Element;
-    rightArrowComponent?: JSX.Element;
+    closeComponent?: React.JSX.Element;
+    leftArrowComponent?: React.JSX.Element;
+    rightArrowComponent?: React.JSX.Element;
 }
 
 const ReactSimpleImageViewer = (props: IProps) => {
@@ -146,7 +147,7 @@ const ReactSimpleImageViewer = (props: IProps) => {
                     <img
                         className={`${styles.image} react-simple-image-viewer__image`}
                         src={props.src[currentIndex]}
-                        alt=""
+                        alt={props.alt[currentIndex] ?? ""}
                         onClick={handleClickImage}
                     />
                 </div>
