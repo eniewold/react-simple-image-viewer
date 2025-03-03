@@ -1,15 +1,18 @@
-# React Simple Image Viewer
+# Simple Image Viewer
 
-Simple image viewer component for React.
+Simple image viewer component for React v19+
+
+This is an in-place replacement fork of the original repository [react-simple-image-viewer](https://github.com/specter256/react-simple-image-viewer).
+Apart from support for React version 19, some additional fixed and features have been added.
 
 # Installation
 
 ```shell
-$ npm install react-simple-image-viewer
+$ npm install simple-image-viewer-react19
 ```
 or
 ```shell
-$ yarn add react-simple-image-viewer
+$ yarn add simple-image-viewer-react19
 ```
 
 # Example
@@ -17,7 +20,7 @@ $ yarn add react-simple-image-viewer
 ```jsx
 import React, { useState, useCallback } from 'react';
 import { render } from 'react-dom';
-import ImageViewer from 'react-simple-image-viewer';
+import ImageViewer from 'simple-image-viewer-react19';
 
 function App() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -28,6 +31,12 @@ function App() {
     'http://placeimg.com/1920/1080/nature',
     'http://placeimg.com/1500/500/nature',
   ];
+  const alts = [
+    'Nature image 1200 by 800',
+    'Nature image 800 by 1200',
+    'Nature image 1920 by 1080',
+    'Nature image 1500 by 500',
+  ]
 
   const openImageViewer = useCallback((index) => {
     setCurrentImage(index);
@@ -55,6 +64,7 @@ function App() {
       {isViewerOpen && (
         <ImageViewer
           src={ images }
+          alt={ alts }
           currentIndex={ currentImage }
           disableScroll={ false }
           closeOnClickOutside={ true }
@@ -73,7 +83,8 @@ render(<App />, document.getElementById('app'));
 | Property              |  Type         | Description                                                                       |
 | :--------------       | :--------     | :-------------------------------------------------------------------------------- |
 | src                   | string[]      | Array of image URLs                                                               |
-| currentIndex          | number        | Index of image in `src` property which will be shown first when viewer is opened  |
+| alt                   | string[]      | Array of alt texts                                                                |
+| currentIndex          | number        | Index of image in `src` and `alt` property will be shown when viewer is open      |
 | onClose               | function      | Callback which will be called when viewer will closed                             |
 | backgroundStyle       | object        | Custom styles for background of modal window                                      |
 | disableScroll         | boolean       | Disable scrolling images by mouse wheel                                           |
@@ -92,6 +103,6 @@ render(<App />, document.getElementById('app'));
 | Left Arrow / h  | Previous image                  |
 | Mouse wheel     | Scrolling previous / next image |
 
-# References to original repository
+# Forked from original repository
 
 [Github Repository](https://github.com/specter256/react-simple-image-viewer)

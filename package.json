@@ -1,5 +1,5 @@
 {
-  "name": "react-simple-image-viewer",
+  "name": "simple-image-viewer-react19",
   "version": "1.3.1",
   "description": "Simple image viewer component for React 19+",
   "main": "dist/index.cjs.js",
@@ -11,21 +11,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/eniewold/react-simple-image-viewer.git"
+    "url": "https://github.com/eniewold/simple-image-viewer-react19"
   },
   "author": {
-    "name": "Alexander Tarasov",
-    "url": "https://github.com/specter256"
+    "name": "Edward Niewold",
+    "url": "https://github.com/eniewold",
   },
   "license": "MIT",
   "contributors": [
     {
-      "name": "Edward Niewold",
-      "url": "https://github.com/eniewold"
+      "name": "Alexander Tarasov",
+      "url": "https://github.com/specter256"
     }
   ],
   "keywords": [
     "react",
+    "react19",
     "reactjs",
     "react-component",
     "image",
@@ -41,8 +42,7 @@
     "rollup": "^2.75.5",
     "rollup-plugin-postcss": "^4.0.2",
     "tslib": "^2.4.0",
-    "typescript": "^4.7.3",
-    "tslint": ".\\tslint.json"
+    "typescript": "^4.7.3"
   },
   "peerDependencies": {
     "@types/react": ">=19.0.0",
