@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 
 interface IProps {
     src: string[];
-    alt: string[];
+    alt?: string[];
     currentIndex?: number;
     backgroundStyle?: CSSProperties;
     imageStyle?: CSSProperties;
@@ -29,13 +29,13 @@ const ReactSimpleImageViewer = (props: IProps) => {
     );
 
     const handleClick = useCallback(
-        (event: any) => {
+        (event: React.MouseEvent) => {
             if (!event.target || !props.closeOnClickOutside) {
                 return;
             }
 
-            const checkId = event.target.id === 'ReactSimpleImageViewer';
-            const checkClass = event.target.classList.contains('react-simple-image-viewer__slide');
+            const checkId = (event.target as HTMLDivElement).id === 'ReactSimpleImageViewer';
+            const checkClass = (event.target as HTMLDivElement).classList.contains('react-simple-image-viewer__slide');
 
             if (checkId || checkClass) {
                 event.stopPropagation();
@@ -46,13 +46,13 @@ const ReactSimpleImageViewer = (props: IProps) => {
     );
 
     const handleClickImage = useCallback(
-        (event: any) => {
+        (event: React.MouseEvent) => {
             if (!event.target || !props.closeOnClickInside) {
                 return;
             }
 
-            const checkId = event.target.id === 'ReactSimpleImageViewer';
-            const checkClass = event.target.classList.contains('react-simple-image-viewer__image');
+            const checkId = (event.target as HTMLImageElement).id === 'ReactSimpleImageViewer';
+            const checkClass = (event.target as HTMLImageElement).classList.contains('react-simple-image-viewer__image');
 
             if (checkId || checkClass) {
                 event.stopPropagation();
@@ -80,8 +80,8 @@ const ReactSimpleImageViewer = (props: IProps) => {
     );
 
     const handleWheel = useCallback(
-        (event: any) => {
-            if (event.wheelDeltaY > 0) {
+        (event: WheelEvent) => {
+            if (event.deltaY > 0) {
                 changeImage(-1);
             } else {
                 changeImage(1);
@@ -92,17 +92,11 @@ const ReactSimpleImageViewer = (props: IProps) => {
 
     useEffect(() => {
         document.addEventListener("keydown", handleKeyDown);
-
-        if (!props.disableScroll) {
-            document.addEventListener("wheel", handleWheel);
-        }
+        if (!props.disableScroll) document.addEventListener("wheel", handleWheel);
 
         return () => {
             document.removeEventListener("keydown", handleKeyDown);
-
-            if (!props.disableScroll) {
-                document.removeEventListener("wheel", handleWheel);
-            }
+            if (!props.disableScroll) document.removeEventListener("wheel", handleWheel);
         };
     }, [handleKeyDown, handleWheel]);
 
@@ -122,21 +116,20 @@ const ReactSimpleImageViewer = (props: IProps) => {
             </span>
 
             {props.src.length > 1 && (
-                <span
-                    className={`${styles.navigation} ${styles.prev} react-simple-image-viewer__previous`}
-                    onClick={() => changeImage(-1)}
-                >
-                    {props.leftArrowComponent || "❮"}
-                </span>
-            )}
-
-            {props.src.length > 1 && (
-                <span
-                    className={`${styles.navigation} ${styles.next} react-simple-image-viewer__next`}
-                    onClick={() => changeImage(1)}
-                >
-                    {props.rightArrowComponent || "❯"}
-                </span>
+                <>
+                    <span
+                        className={`${styles.navigation} ${styles.prev} react-simple-image-viewer__previous`}
+                        onClick={() => changeImage(-1)}
+                    >
+                        {props.leftArrowComponent || "❮"}
+                    </span>
+                    <span
+                        className={`${styles.navigation} ${styles.next} react-simple-image-viewer__next`}
+                        onClick={() => changeImage(1)}
+                    >
+                        {props.rightArrowComponent || "❯"}
+                    </span>
+                </>
             )}
 
             <div
@@ -147,7 +140,7 @@ const ReactSimpleImageViewer = (props: IProps) => {
                     <img
                         className={`${styles.image} react-simple-image-viewer__image`}
                         src={props.src[currentIndex]}
-                        alt={props.alt[currentIndex] ?? ""}
+                        alt={props.alt?.[currentIndex] ?? ""}
                         onClick={handleClickImage}
                     />
                 </div>
