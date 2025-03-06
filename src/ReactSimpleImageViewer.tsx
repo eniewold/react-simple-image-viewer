@@ -7,7 +7,9 @@ interface IProps {
     currentIndex?: number;
     backgroundStyle?: CSSProperties;
     imageStyle?: CSSProperties;
+    captionStyle?: CSSProperties;
     disableScroll?: boolean;
+    disableCaption?: boolean;
     closeOnClickOutside?: boolean;
     closeOnClickInside?: boolean;
     onClose?: () => void;
@@ -143,6 +145,11 @@ const ReactSimpleImageViewer = (props: IProps) => {
                         alt={props.alt?.[currentIndex] ?? ""}
                         onClick={handleClickImage}
                     />
+                    {props.disableCaption || !props.alt?.[currentIndex] ? null : 
+                        <div className={`${styles.caption} react-simple-image-viewer__caption`} style={props.captionStyle}>
+                            {props.alt?.[currentIndex]}
+                        </div>
+                    }
                 </div>
             </div>
         </div>

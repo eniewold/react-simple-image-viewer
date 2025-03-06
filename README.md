@@ -5,6 +5,12 @@ Simple image viewer component for React v19+
 This is an in-place replacement fork of the original repository [react-simple-image-viewer](https://github.com/specter256/react-simple-image-viewer).
 Apart from support for React version 19, some additional fixed and features have been added.
 
+# Change Log
+
+- v1.3.2 - Initial release with support for React 19, added closeOnClickInside property
+- v1.3.3 - Added alts property to provide alt text for images
+- v1.4.0 - Viewer shows captions under images based on alts string array (also added related disableCaption and captionStyle properties)
+
 # Installation
 
 ```shell
@@ -78,16 +84,19 @@ function App() {
 
 render(<App />, document.getElementById('app'));
 ```
+
 # API
 
 | Property              |  Type         | Description                                                                       |
 | :--------------       | :--------     | :-------------------------------------------------------------------------------- |
 | src                   | string[]      | Array of image URLs                                                               |
-| alt                   | string[]      | Array of alt texts                                                                |
-| currentIndex          | number        | Index of image in `src` and `alt` property will be shown when viewer is open      |
-| onClose               | function      | Callback which will be called when viewer will closed                             |
-| backgroundStyle       | object        | Custom styles for background of modal window                                      |
+| alt                   | string[]      | Array of alt texts, used in image and show as caption under image                 |
+| currentIndex          | number        | Index of image in `src` and `alt` property shown when viewer is open              |
+| onClose               | function      | Callback which will be called when viewer is closed                               |
+| backgroundStyle       | CSSProperties | Object with custom styles for background of modal window                          |
+| captionStyle          | CSSProperties | Object with custom styles for caption text under image                            |
 | disableScroll         | boolean       | Disable scrolling images by mouse wheel                                           |
+| disableCaption        | boolean       | Do not show the caption under the image                                           |
 | closeOnClickOutside   | boolean       | Whether viewer should be closed when clicking outside of image                    |
 | closeOnClickInside    | boolean       | Whether viewer should be closed when clicking inside image                        |
 | closeComponent        | JSX.Element   | Custom component for the close button                                             |
