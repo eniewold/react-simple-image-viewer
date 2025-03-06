@@ -26,16 +26,16 @@ function App() {
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const images = [
-    'http://placeimg.com/1200/800/nature',
-    'http://placeimg.com/800/1200/nature',
-    'http://placeimg.com/1920/1080/nature',
-    'http://placeimg.com/1500/500/nature',
+    'https://picsum.photos/1200/800',
+    'https://picsum.photos/800/1200',
+    'https://picsum.photos/1920/1080',
+    'https://picsum.photos/1500/500',
   ];
   const alts = [
-    'Nature image 1200 by 800',
-    'Nature image 800 by 1200',
-    'Nature image 1920 by 1080',
-    'Nature image 1500 by 500',
+    'Random image 1200 by 800',
+    'Random image 800 by 1200',
+    'Random image 1920 by 1080',
+    'Random image 1500 by 500',
   ]
 
   const openImageViewer = useCallback((index) => {
@@ -57,7 +57,7 @@ function App() {
           width="300"
           key={ index }
           style={{ margin: '2px' }}
-          alt=""
+          alt={ alts[index] }
         />
       ))}
 
@@ -94,6 +94,7 @@ render(<App />, document.getElementById('app'));
 | leftArrowComponent    | JSX.Element   | Custom component for the left arrow                                               |
 | rightArrowComponent   | JSX.Element   | Custom component for the right arrow                                              |
 
+
 # Shortcuts
 
 | Shortcut        | Description                     |
@@ -102,6 +103,7 @@ render(<App />, document.getElementById('app'));
 | Right Arrow / l | Next image                      |
 | Left Arrow / h  | Previous image                  |
 | Mouse wheel     | Scrolling previous / next image |
+
 
 # Forked from original repository
 
